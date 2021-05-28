@@ -1,11 +1,9 @@
 # MyReads Project
 
-Reads tracking app by which you can add and remove books to your library and search for new books.
+![mainPage](main.png)  
+![searchPage](search.png)
 
-# ![mainPage](main.png)  
-# ![searchPage](search.png)
-
-# Running tha app
+## Running tha app
 ```
 npm install
 ```
@@ -14,7 +12,7 @@ npm run start
 ```
 
 
-# functionality
+## functionality
 - Main page displys the user's chosen books in three categories (Want to read, Reading, Read).
 - Allow the user to move the books between the shielves
 - Button links to the search page
