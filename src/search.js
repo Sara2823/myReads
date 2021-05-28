@@ -10,13 +10,14 @@ class SearchBook extends Component {
 
     render() {
         const data = this.props;
-        return <div className="search-books">
-            <div className="search-books-bar">
+        return (
+            <div className="search-books">
+                <div className="search-books-bar">
 
 
-                <Link className="close-search" to="/"> Close </Link>
-                <div className="search-books-input-wrapper">
-                <DebounceInput
+                    <Link className="close-search" to="/"> Close </Link>
+                    <div className="search-books-input-wrapper">
+                    <DebounceInput
                         debounceTimeout={500}
                         element="input"
                         type="text"
@@ -25,15 +26,16 @@ class SearchBook extends Component {
                         placeholder="Search by title or author"
                     />
 
+                    </div>
+                </div>
+                <div className="search-books-results">
+                    <BookShelf updateShelf={data.updateShelf} shelf="My books" books=
+                    {data.books.filter(book => book.shelf === 'currentlyReading' || book.shelf === 'read' || book.shelf === 'wantToRead')} />
+
+                    <BookShelf updateShelf={data.updateShelf} shelf="Discover!" books={data.books.filter(book => book.shelf === 'none')} />
                 </div>
             </div>
-            <div className="search-books-results">
-                <BookShelf updateShelf={data.updateShelf} shelf="My books" books=
-                {data.books.filter(book => book.shelf === 'currentlyReading' || book.shelf === 'read' || book.shelf === 'wantToRead')} />
-
-                <BookShelf updateShelf={data.updateShelf} shelf="Discover!" books={data.books.filter(book => book.shelf === 'none')} />
-            </div>
-        </div>
+        )
     };
 };
 

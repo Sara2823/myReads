@@ -25,10 +25,10 @@ class BookShelf extends Component {
                         <div className="book-title">{book.title}</div>
                         <div className="book-authors">
                             <ul>
-                            {Array.isArray(book.authors) && (
-                                book.authors.map((author, index)=>
-                                (<li key={index}>{author}</li>))
-                                
+                                {Array.isArray(book.authors) && (
+                                    book.authors.map((author, index)=>
+                                    (<li key={index}>{author}</li>))
+                                    
                                 )}
                             </ul>
                             </div>
