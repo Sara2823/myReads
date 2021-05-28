@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import BookShelf from './bookShelf'
+import DebounceInput from 'react-debounce-input'
 
 class SearchBook extends Component {
     componentDidMount() {
@@ -15,11 +16,13 @@ class SearchBook extends Component {
 
                 <Link className="close-search" to="/"> Close </Link>
                 <div className="search-books-input-wrapper">
-                    <input
+                <DebounceInput
+                        debounceTimeout={500}
+                        element="input"
                         type="text"
-                        placeholder="Search by title or author"
                         value={data.books.string}
                         onChange={data.searchQuery}
+                        placeholder="Search by title or author"
                     />
 
                 </div>

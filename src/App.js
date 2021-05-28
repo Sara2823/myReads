@@ -29,29 +29,30 @@ emptyQuery = () => this.setState({ filteredBooks : []})
 emptyLibrary = () => this.setState({ myBooks : []})
 
 searchQuery = (event) => {
+  
   const query = event.target.value
-  console.log(query)
+  this.setState({ filteredBooks : []});
+  console.log("first come  "+query)
+  
   if (query !== '') { 
     BooksAPI.search(query)
     .then(searchResults => {
-      if (!searchResults || searchResults.error) {    
+      if (!searchResults || searchResults.error) { 
         console.log(searchResults.error)
         return
       }
-   
+
       const adjustedBooks = searchResults.map(searchResult => {
-          this.state.myBooks.forEach(book => {
-            
+          this.state.myBooks.forEach(book => {            
             if (book.id === searchResult.id){searchResult.shelf = book.shelf; } // Check if the book is familiar
             if (searchResult.shelf === undefined){searchResult.shelf = 'none'} //Add none-category to new books 
-
           })
         return searchResult
       })
-      
       this.setState({ filteredBooks: adjustedBooks })
     })
   }
+
 }
 
 
